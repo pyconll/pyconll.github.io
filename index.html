@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <title>pyconll</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro|Open+Sans:600">
+        <link rel="stylesheet" href="index.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="title">pyconll</h1>
+                </div>
+            </div>
+
+            <div class="row small-space">
+                <div class="col">
+                    <h3 class="subtitle">A minimal, all python, no dependency library to parse CoNLL files.</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p class="promo">
+                        <strong>pyconll</strong> provides a basic, low level wrapper around the CoNLL annotation scheme.
+                        pyconll's sensible API allows for easy automation and little ramp up time, and it works as a great
+                        building block for creating larger CL systems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row extra-space">
+                <div class="col">
+                    <h4>Code Sample</h4>
+                    <pre><code class="python code-sample">
+                        # Make sure 'Lord of the Rings' has 'Lord' and 'Rings' annotated as regular NOUN.
+                        import pyconll
+                        import pyconll.util
+
+                        UD_ENGLISH_TRAIN = './ud/train.conll'
+                        NGRAM = 'Lord of the Rings'.split()
+
+                        train = pyconll.load_from_file(UD_ENGLISH_TRAIN)
+
+                        for sentence, i in pyconll.util.find_ngrams(train, NGRAM):
+                            tokens = sentence[i:i + len(NGRAM)]
+                            tokens[0].UPOS = 'NOUN'
+                            tokens[-1].UPOS = 'NOUN'
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="row extra-space">
+                <div class="col">
+                    <h4>Install</h4>
+                    <pre><code class="bash code-sample">
+                        pip install pyconll
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Want to find out more?</p>
+
+                    <!-- TODO: add a github link at top right.-->
+                    <ul>
+                        <li>
+                            <i class="fab fa-github list-item-icon" aria-hidden="true"></i>
+                            <a href="https://github.com/pyconll/pyconll">GitHub</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-book list-item-icon" aria-hidden="true"></i>
+                            <a href="https://pyconll.readthedocs.io/">Documentation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
