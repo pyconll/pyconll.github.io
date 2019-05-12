@@ -65,10 +65,10 @@
                         train = pyconll.load_from_file(UD_ENGLISH_TRAIN)
 
                         # util#find_ngrams provides an iterator of tuples where the first element is the
-                        # sentence where the ngram was found, and the second element is the numeric index
-                        # of the ngram occurence in the sentence.
-                        for sentence, i in pyconll.util.find_ngrams(train, NGRAM):
-                            tokens = sentence[i:i + len(NGRAM)]
+                        # sentence where the ngram was found,the second element is the numeric index of
+                        # the ngram occurence in the sentence, and the third element is a list of the
+                        # matching ngrams.
+                        for sentence, i, tokens in pyconll.util.find_ngrams(train, NGRAM):
                             tokens[0].UPOS = 'NOUN'
                             tokens[-1].UPOS = 'NOUN'
 
