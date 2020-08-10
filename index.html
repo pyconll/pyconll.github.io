@@ -69,8 +69,8 @@
                         # the ngram occurence in the sentence, and the third element is a list of the
                         # matching ngrams.
                         for sentence, i, tokens in pyconll.util.find_ngrams(train, NGRAM):
-                            tokens[0].UPOS = 'NOUN'
-                            tokens[-1].UPOS = 'NOUN'
+                            tokens[0].upos = 'NOUN'
+                            tokens[-1].upos = 'NOUN'
 
                         # After making sure these occurrences are properly handled, go through the
                         # corpus and determine how many unique proper nouns are annotated.
