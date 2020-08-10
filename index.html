@@ -80,7 +80,13 @@
                                 if token.upos == 'PROPN':
                                     pronouns.add(token.lemma)
 
-                        print(len(prounouns))
+                        # Print out how many unique pronouns there are in the corpus and print out the transformed version
+                        print(len(pronouns))
+
+                        # The argument to write should be a Writeable (i.e. have a write method). In this case we also want to
+                        # write to a utf-8 file.
+                        with open('./ud/transformed.conll', 'w', encoding='utf-8') as f:
+                            train.write(f)
                     </code></pre>
                 </div>
             </div>
